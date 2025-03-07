@@ -4,7 +4,7 @@ import { useParams } from "next/navigation";
 import GenerateQuizAI from "@/ai/generateQuiz.ai";
 import { Suspense } from "react";
 import QuizzesComponent from "@/components/quizesComponent/quizesComoonent";
-import Loading from "./loading";
+import Loading from "@/components/loadingComponent/loadingContainer";
 import QuizComponentWrapper from "@/components/quizesComponent/quizComponentWrapper";
 
 export default async function QuizPage({
@@ -22,7 +22,10 @@ export default async function QuizPage({
           <h1>{decodeURI(topic)} Quiz</h1>
         </div>
         <div className="quizzes">
+          {/* <Suspense fallback={<Loading message="Generating Quizzes" />}>
           <QuizComponentWrapper topic={decodeURI(topic)} />
+          </Suspense> */}
+          <Loading message="Generating Quizzes" />
         </div>
       </div>
     </div>

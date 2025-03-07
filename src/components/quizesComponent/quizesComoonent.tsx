@@ -26,7 +26,6 @@ export default function QuizzesComponent({ quizData }: { quizData: QuizData }) {
       explanation: "",
     };
   });
-  console.log("quizData", quizData);
 
   const [quizzes, setQuizzes] = useState<QuizData>(initialQuizData);
   const [score, updateScore] = useState<number | null>(null);
