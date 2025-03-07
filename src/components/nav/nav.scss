@@ -1,0 +1,18 @@
+header {
+  padding: 10px;
+  background-color: var(--color5);
+  width: 100%;
+  nav{
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    .logoContainer{
+      height: 100%;
+
+      img{
+        height: 100%;
+      }
+    }
+
+  }
+}
