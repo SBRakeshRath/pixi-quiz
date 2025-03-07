@@ -3,11 +3,9 @@ import "./quizSearch.scss";
 import { useRef } from "react";
 import { FormEvent } from "react";
 
-interface QuizSearchProps {
-  e: FormEvent<HTMLFormElement>;
-}
 
-export default function QuizSearch({ e }: QuizSearchProps) {
+
+export default function QuizSearch() {
   const inputRef = useRef<HTMLInputElement>(null);
   const goToQuizPage = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
