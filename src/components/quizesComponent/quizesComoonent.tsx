@@ -13,6 +13,7 @@ export type QuizData = {
 import "./quizesComponent.scss";
 import QuizComponent from "./quizComponent";
 import { useMemo, useRef, useState } from "react";
+import toast from "react-hot-toast";
 
 export default function QuizzesComponent({ quizData }: { quizData: QuizData }) {
   const initialQuizData = quizData.map((quiz, index) => {
@@ -30,7 +31,6 @@ export default function QuizzesComponent({ quizData }: { quizData: QuizData }) {
   const [quizzes, setQuizzes] = useState<QuizData>(initialQuizData);
   const [score, updateScore] = useState<number | null>(null);
   const quizContainer = useRef<HTMLDivElement>(null);
-  console.log("quizzes", quizzes);
 
   function evaluateQuiz() {
     let score = 0;
@@ -40,7 +40,7 @@ export default function QuizzesComponent({ quizData }: { quizData: QuizData }) {
       const options = quizComponents[i].querySelectorAll("input");
       // check if a option is checked or not
       if (!Array.from(options).some((option) => option.checked)) {
-        alert("Please answer all questions");
+        toast.error("Please answer all the questions", { duration: 2000 });
         return;
       }
     }
@@ -60,7 +60,6 @@ export default function QuizzesComponent({ quizData }: { quizData: QuizData }) {
         score += 1;
       }
     }
-    console.log("score", score);
     // update class of correct option and incorrect option
     for (let i = 0; i < quizComponents.length; i++) {
       const options = quizComponents[i].querySelectorAll("input");
@@ -79,8 +78,9 @@ export default function QuizzesComponent({ quizData }: { quizData: QuizData }) {
     }
     updateScore(score);
     setQuizzes(quizData);
+    // smooth scroll to top
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
-  console.log("updateScore", score);
 
   return (
     <div className="quizzesComponent">

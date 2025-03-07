@@ -13,6 +13,32 @@ header {
         height: 100%;
       }
     }
+    .linksContainer{
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      a{
+        text-decoration: none;
+        color: white;
+        font-size: 1.2rem;
+        &:hover{
+          color: var(--color1);
+        }
+      }
+      .newQuizButton{
+        background-color: var(--color3);
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        color: var(--color5);
+        cursor: pointer;
+        box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+        &:hover{
+          background-color: var(--color2);
+          color: #000;
+        }
+      }
+    }
 
   }
 }

@@ -34,9 +34,7 @@ export default function QuizComponent({
     if (currentInput) {
       currentInput.checked = true;
     }
-    console.log(currentInput);
   };
-  console.log(Answer);
   return (
     <div className={`quizComponent`}>
       <div className="tittle">

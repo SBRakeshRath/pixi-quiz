@@ -5,10 +5,9 @@ import SeoFooterComponent from "@/components/seoFooter/seoFooter";
 
 export default function Home() {
   return (
-    <main className="homePage">
+    <div className="homePage">
       <NavBar />
       <QuizSearch />
-      <SeoFooterComponent />
-    </main>
+    </div>
   );
 }

@@ -19,11 +19,11 @@ export default async function QuizPage({
       <NavBar />
       <div className="quizContainer">
         <div className="tittle">
-          <h1>{decodeURI(topic)} Quiz</h1>
+          <h1>{decodeURIComponent(topic)} Quiz</h1>
         </div>
         <div className="quizzes">
           <Suspense fallback={<Loading message="Generating Quizzes" />}>
-          <QuizComponentWrapper topic={decodeURI(topic)} />
+            <QuizComponentWrapper topic={decodeURIComponent(topic)} />
           </Suspense>
           {/* <Loading message="Generating Quizzes" /> */}
         </div>

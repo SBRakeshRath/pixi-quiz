@@ -1,35 +1,36 @@
 import { Metadata } from "next";
 import { Roboto } from "next/font/google";
+import { Toaster } from "react-hot-toast";
 export async function generateMetadata(): Promise<Metadata> {
-  const title = "Portfolio of SBRR";
+  const title = "PixiQuiz";
 
-  const description = "Portfolio of a software engineer";
+  const description = "PixiQuiz - AI powered quiz generator";
 
   return {
-    metadataBase: new URL("https://pixismith.com"),
+    metadataBase: new URL("https://pixiquiz.pixismith.com"),
     title,
     description,
-    // themeColor: "black",
-    // openGraph: {
-    //   title,
-    //   description,
-    //   url: "https://pixismith.com",
-    //   images: [
-    //     {
-    //       url: "/openGraph.jpg",
-    //       secureUrl: "/openGraph.jpg",
-    //       width: 1200,
-    //       height: 630,
-    //       alt: "Preview of SBRR Portfolio",
-    //     },
-    //   ],
-    //   type: "website",
-    //   siteName: "S B Rakesh Rath | Portfolio",
-    // },
+    openGraph: {
+      title,
+      description,
+      url: "https://pixiquiz.pixismith.com",
+      images: [
+        {
+          url: "/openGraph.png",
+          secureUrl: "/openGraph.png",
+          width: 1200,
+          height: 630,
+          alt: "Preview of PixiQuiz",
+        },
+      ],
+      type: "website",
+      siteName: "PixiQuiz",
+    },
   };
 }
 
 import "./globals.css";
+import FooterComponent from "@/components/Footer/Footer";
 
 const roboto = Roboto({
   weight: ["400", "700", "900"],
@@ -46,7 +47,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={roboto.className}>{children}</body>
+      <body className={roboto.className}>
+        <Toaster position="top-center" />
+        {children}
+        <FooterComponent />
+      </body>
     </html>
   );
 }

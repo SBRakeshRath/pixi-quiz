@@ -11,11 +11,9 @@ export default async function GenerateQuizAI(quizTopic: string) {
   const prompt = `Give me 10 quiz questions on topic ${quizTopic.trim()}. The out should only contain json data in format Array<{Question:"string",OptionOne:"string",OptionTwo:"string",OptionThree:"string",OptionFour:"string", Answer:"optionNumber", explanation:"string"}>`;
   try {
     const response = await model.generateContent(prompt);
-    console.log(response.response.text());
     const responseText = response.response.text();
     // data will be inside ```json and ``` so we need to extract it
     const extractedData = responseText.match(/```json([\s\S]*?)```/);
-    console.log(extractedData);
     if (!extractedData) {
       return false;
     }
