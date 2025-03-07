@@ -22,10 +22,10 @@ export default async function QuizPage({
           <h1>{decodeURI(topic)} Quiz</h1>
         </div>
         <div className="quizzes">
-          {/* <Suspense fallback={<Loading message="Generating Quizzes" />}>
+          <Suspense fallback={<Loading message="Generating Quizzes" />}>
           <QuizComponentWrapper topic={decodeURI(topic)} />
-          </Suspense> */}
-          <Loading message="Generating Quizzes" />
+          </Suspense>
+          {/* <Loading message="Generating Quizzes" /> */}
         </div>
       </div>
     </div>
