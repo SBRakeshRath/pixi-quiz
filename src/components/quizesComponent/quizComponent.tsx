@@ -13,7 +13,7 @@ export default function QuizComponent({
   OptionTwo: string;
   OptionThree: string;
   OptionFour: string;
-  Answer: number | boolean;
+  Answer: number | boolean | string;
   explanation: string;
   QuestionNumber: number;
 }) {
@@ -42,7 +42,7 @@ export default function QuizComponent({
           onClick={optionClicked}
           className={
             Answer
-              ? Answer === 1
+              ? (Answer === 1 || Answer === "1") 
                 ? "option correct"
                 : "option incorrect"
               : "option"
@@ -59,7 +59,7 @@ export default function QuizComponent({
           onClick={optionClicked}
           className={
             Answer
-              ? Answer === 2
+              ? (Answer === 2 || Answer === "2") 
                 ? "option correct"
                 : "option incorrect"
               : "option"
@@ -76,7 +76,7 @@ export default function QuizComponent({
           onClick={optionClicked}
           className={
             Answer
-              ? Answer === 3
+              ? (Answer === 3 || Answer === "3") 
                 ? "option correct"
                 : "option incorrect"
               : "option"
@@ -93,7 +93,7 @@ export default function QuizComponent({
           onClick={optionClicked}
           className={
             Answer
-              ? Answer === 4
+              ? (Answer === 4 || Answer === "4") 
                 ? "option correct"
                 : "option incorrect"
               : "option"

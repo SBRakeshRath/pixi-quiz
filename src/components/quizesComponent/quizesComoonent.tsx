@@ -82,6 +82,8 @@ export default function QuizzesComponent({ quizData }: { quizData: QuizData }) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
+  console.log("quizzes", quizData);
+
   return (
     <div className="quizzesComponent">
       {score !== null ? (
