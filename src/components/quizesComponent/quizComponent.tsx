@@ -18,19 +18,16 @@ export default function QuizComponent({
   QuestionNumber: number;
 }) {
   const optionClicked = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
-    e.preventDefault();
     e.stopPropagation();
-    const target = e.target as HTMLDivElement;
-    const options =
-      target.parentElement?.parentElement?.querySelectorAll("input");
+    const target = e.currentTarget as HTMLDivElement;
+    const options = target.parentElement?.querySelectorAll("input");
     options?.forEach((option) => {
       option.checked = false;
     });
 
-    const currentInput = (
-      e.target as HTMLLabelElement
-    ).parentElement?.querySelector("input");
-    // currentInput?.setAttribute("checked", "true")
+    const currentInput = (e.currentTarget as HTMLDivElement).querySelector(
+      "input"
+    );
     if (currentInput) {
       currentInput.checked = true;
     }
@@ -56,9 +53,7 @@ export default function QuizComponent({
             name={`question${QuestionNumber}OptionOne`}
             id={`question${QuestionNumber}OptionOne`}
           />
-          <label htmlFor={`question${QuestionNumber}OptionOne`}>
-            {OptionOne}
-          </label>
+          <label>{OptionOne}</label>
         </div>
         <div
           onClick={optionClicked}
@@ -75,9 +70,7 @@ export default function QuizComponent({
             id={`question${QuestionNumber}OptionTwo`}
             name={`question${QuestionNumber}OptionTwo`}
           />
-          <label htmlFor={`question${QuestionNumber}OptionTwo`}>
-            {OptionTwo}
-          </label>
+          <label>{OptionTwo}</label>
         </div>
         <div
           onClick={optionClicked}
@@ -94,9 +87,7 @@ export default function QuizComponent({
             name={`question${QuestionNumber}OptionThree`}
             id={`question${QuestionNumber}OptionThree`}
           />
-          <label htmlFor={`question${QuestionNumber}OptionThree`}>
-            {OptionThree}
-          </label>
+          <label>{OptionThree}</label>
         </div>
         <div
           onClick={optionClicked}
@@ -113,9 +104,7 @@ export default function QuizComponent({
             name={`question${QuestionNumber}OptionFour`}
             id={`question${QuestionNumber}OptionFour`}
           />
-          <label htmlFor={`question${QuestionNumber}OptionFour`}>
-            {OptionFour}
-          </label>
+          <label>{OptionFour}</label>
         </div>
       </div>
       <div
